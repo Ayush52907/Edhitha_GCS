@@ -25,7 +25,8 @@ npm install
 To run the full simulation and interface, you must start four separate processes in this order:
 
 Terminal 1 (SITL): Launch the physics simulation on a dedicated port to avoid QGroundControl conflicts.
-```sim_vehicle.py -v ArduCopter --console --map --out=127.0.0.1:14551
+```bash
+sim_vehicle.py -v ArduCopter --console --map --out=127.0.0.1:14551
 ```
 Terminal 2 (MAVROS): Connect MAVROS to the dedicated port.
 ```bash
