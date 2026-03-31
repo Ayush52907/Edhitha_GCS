@@ -18,24 +18,25 @@ sudo apt install ros-humble-rosbridge-suite
 # Install React dependencies
 cd edhitha-gcs
 npm install
+```
 
 ### 2. Launching the System
 
 To run the full simulation and interface, you must start four separate processes in this order:
 
-Terminal 1 (SITL): Launch the physics simulation on a dedicated port to avoid QGroundControl conflicts.
-sim_vehicle.py -v ArduCopter --console --map --out=127.0.0.1:14551
-
-Terminal 2 (MAVROS): Connect MAVROS to the dedicated port.
-ros2 launch mavros apm.launch fcu_url:=udp://127.0.0.1:14551@
-
-Terminal 3 (ROS Bridge): Start the WebSocket server.
-ros2 launch rosbridge_server rosbridge_websocket_launch.xml
-
-Terminal 4 (React App): Launch the frontend.
-cd edhitha-gcs
+# Terminal 1 (SITL): Launch the physics simulation on a dedicated port to avoid QGroundControl conflicts.
+```sim_vehicle.py -v ArduCopter --console --map --out=127.0.0.1:14551
+```
+# Terminal 2 (MAVROS): Connect MAVROS to the dedicated port.
+```ros2 launch mavros apm.launch fcu_url:=udp://127.0.0.1:14551@
+```
+# Terminal 3 (ROS Bridge): Start the WebSocket server.
+```ros2 launch rosbridge_server rosbridge_websocket_launch.xml
+```
+# Terminal 4 (React App): Launch the frontend.
+```cd edhitha-gcs
 npm start
-
+```
 ### 3. Architecture
 
 To ensure clean separation of concerns, the codebase is strictly divided into three layers:
